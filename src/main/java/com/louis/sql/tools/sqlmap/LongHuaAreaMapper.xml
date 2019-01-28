@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.louis.sql.tools.dao.LongHuaAreaMapper">
+  <resultMap id="BaseResultMap" type="com.louis.sql.tools.model.LongHuaAreaDO">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CER_NO" jdbcType="VARCHAR" property="cerNo" />
+    <result column="LEGAL_NO" jdbcType="VARCHAR" property="legalNo" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="MOB_TEL" jdbcType="VARCHAR" property="mobTel" />
+    <result column="CORP_NAME" jdbcType="VARCHAR" property="corpName" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="POST" jdbcType="VARCHAR" property="post" />
+    <result column="EXPERTISE" jdbcType="VARCHAR" property="expertise" />
+    <result column="REG_ORG" jdbcType="VARCHAR" property="regOrg" />
+    <result column="BIZ_ORG" jdbcType="VARCHAR" property="bizOrg" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="OFFICE_NAME" jdbcType="VARCHAR" property="officeName" />
+    <result column="CORP_CODE" jdbcType="VARCHAR" property="corpCode" />
+    <result column="DEPT_CODE" jdbcType="VARCHAR" property="deptCode" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="EMPLOYEE_CODE" jdbcType="VARCHAR" property="employeeCode" />
+    <result column="ISEXTRACT" jdbcType="CHAR" property="isextract" />
+  </resultMap>
+  <insert id="insert" parameterType="com.louis.sql.tools.model.LongHuaAreaDO">
+    insert into BZ_JCRY (ID, CER_NO, LEGAL_NO, 
+      NAME, SEX, MOB_TEL, 
+      CORP_NAME, DEPT_NAME, POST, 
+      EXPERTISE, REG_ORG, BIZ_ORG, 
+      UPDATE_TIME, OFFICE_NAME, CORP_CODE, 
+      DEPT_CODE, CREATE_TIME, EMPLOYEE_CODE, 
+      ISEXTRACT)
+    values (#{id,jdbcType=VARCHAR}, #{cerNo,jdbcType=VARCHAR}, #{legalNo,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{mobTel,jdbcType=VARCHAR}, 
+      #{corpName,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR}, 
+      #{expertise,jdbcType=VARCHAR}, #{regOrg,jdbcType=VARCHAR}, #{bizOrg,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{officeName,jdbcType=VARCHAR}, #{corpCode,jdbcType=VARCHAR}, 
+      #{deptCode,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{employeeCode,jdbcType=VARCHAR}, 
+      #{isextract,jdbcType=CHAR})
+  </insert>
+  <sql id="Base_Column_List">
+    ID, CER_NO, LEGAL_NO, NAME, SEX, MOB_TEL, CORP_NAME, DEPT_NAME, POST, EXPERTISE, REG_ORG, BIZ_ORG,
+    UPDATE_TIME, OFFICE_NAME, CORP_CODE, DEPT_CODE, CREATE_TIME, EMPLOYEE_CODE, ISEXTRACT
+  </sql>
+  <select id="listAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BZ_JCRY
+  </select>
+  <delete id="deleteById" parameterType="java.lang.String">
+    delete from BZ_JCRY
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByName" parameterType="java.lang.String">
+    delete from BZ_JCRY
+    where NAME = #{name,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertSelective" parameterType="com.louis.sql.tools.model.LongHuaAreaDO">
+    insert into BZ_JCRY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="cerNo != null">
+        CER_NO,
+      </if>
+      <if test="legalNo != null">
+        LEGAL_NO,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="mobTel != null">
+        MOB_TEL,
+      </if>
+      <if test="corpName != null">
+        CORP_NAME,
+      </if>
+      <if test="deptName != null">
+        DEPT_NAME,
+      </if>
+      <if test="post != null">
+        POST,
+      </if>
+      <if test="expertise != null">
+        EXPERTISE,
+      </if>
+      <if test="regOrg != null">
+        REG_ORG,
+      </if>
+      <if test="bizOrg != null">
+        BIZ_ORG,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="officeName != null">
+        OFFICE_NAME,
+      </if>
+      <if test="corpCode != null">
+        CORP_CODE,
+      </if>
+      <if test="deptCode != null">
+        DEPT_CODE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="employeeCode != null">
+        EMPLOYEE_CODE,
+      </if>
+      <if test="isextract != null">
+        ISEXTRACT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="cerNo != null">
+        #{cerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="legalNo != null">
+        #{legalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="mobTel != null">
+        #{mobTel,jdbcType=VARCHAR},
+      </if>
+      <if test="corpName != null">
+        #{corpName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null">
+        #{post,jdbcType=VARCHAR},
+      </if>
+      <if test="expertise != null">
+        #{expertise,jdbcType=VARCHAR},
+      </if>
+      <if test="regOrg != null">
+        #{regOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="bizOrg != null">
+        #{bizOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="officeName != null">
+        #{officeName,jdbcType=VARCHAR},
+      </if>
+      <if test="corpCode != null">
+        #{corpCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptCode != null">
+        #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="employeeCode != null">
+        #{employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isextract != null">
+        #{isextract,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
