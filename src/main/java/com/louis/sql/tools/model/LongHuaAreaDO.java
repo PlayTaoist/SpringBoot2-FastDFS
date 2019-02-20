@@ -8,47 +8,63 @@ package com.louis.sql.tools.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
+import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
+
+@ExcelTarget("BZ_JCRY")
 public class LongHuaAreaDO implements Serializable{
 
     private static final long serialVersionUID = -4277023292843262708L;
 
+    @Excel(name = "ID", orderNum = "0")
     private String id;
-
+    @Excel(name = "编号", orderNum = "1")
     private String cerNo;
-
+    @Excel(name = "姓名", orderNum = "2")
     private String legalNo;
-
+    @Excel(name = "姓名", orderNum = "3")
     private String name;
-
+    @Excel(name = "性别", replace = {"男_0", "女_1"}, orderNum = "4")
     private String sex;
-
+    @Excel(name = "手机号", orderNum = "5")
     private String mobTel;
-
+    @Excel(name = "单位名称", orderNum = "6")
     private String corpName;
-
+    @Excel(name = "部门名称", orderNum = "7")
     private String deptName;
-
+    @Excel(name = "职位", orderNum = "8")
     private String post;
-
+    @Excel(name = "专门", orderNum = "9")
     private String expertise;
-
+    @Excel(name = "组织机构", orderNum = "10")
     private String regOrg;
-
+    @Excel(name = "组织机构简称", orderNum = "11")
     private String bizOrg;
-
+    @Excel(name = "更新时间", exportFormat = "yyyy-MM-dd HH:mm:ss", orderNum = "12")
     private Date updateTime;
-
+    @Excel(name = "办公室名称", orderNum = "13")
     private String officeName;
-
+    @Excel(name = "单位编码", orderNum = "14")
     private String corpCode;
-
+    @Excel(name = "部门编码", orderNum = "15")
     private String deptCode;
-
+    @Excel(name = "创建时间", exportFormat = "yyyy-MM-dd HH:mm:ss", orderNum = "16")
     private Date createTime;
-
+    @Excel(name = "雇佣编号", orderNum = "17")
     private String employeeCode;
-
+    @Excel(name = "是否在职", orderNum = "18")
     private String isextract;
+
+    
+    @Override
+    public String toString() {
+        return "LongHuaAreaDO [id=" + id + ", cerNo=" + cerNo + ", legalNo=" + legalNo + ", name=" + name
+                + ", sex=" + sex + ", mobTel=" + mobTel + ", corpName=" + corpName + ", deptName=" + deptName
+                + ", post=" + post + ", expertise=" + expertise + ", regOrg=" + regOrg + ", bizOrg=" + bizOrg
+                + ", updateTime=" + updateTime + ", officeName=" + officeName + ", corpCode=" + corpCode
+                + ", deptCode=" + deptCode + ", createTime=" + createTime + ", employeeCode=" + employeeCode
+                + ", isextract=" + isextract + "]";
+    }
 
     public String getId() {
         return id;

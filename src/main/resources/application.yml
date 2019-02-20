@@ -16,8 +16,8 @@ spring:
     druid:
       driver-class-name: oracle.jdbc.driver.OracleDriver
       url: jdbc:oracle:thin:@192.168.0.205:1521:orcl
-      username: gcloud_check
-      password: gcloud_check
+      username: DB_BZK
+      password: BZK_HAINAN
       filters: stat,wall,log4j,config
       max-active: 100
       initial-size: 1

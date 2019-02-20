@@ -5,7 +5,10 @@
  */
 package com.louis.sql.tools.service;
 
+import java.io.IOException;
 import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.louis.sql.tools.model.LongHuaAreaDO;
 
@@ -39,5 +42,15 @@ public interface LongHuaAreaService {
      * @throws 
      */
     int delete(LongHuaAreaDO record);
+
+    /** 
+     * @Title: batchImport 
+     * @Description: 导入Excel中的数据 
+     * @param @param fileName
+     * @param @param file  参数说明 
+     * @return void    返回类型 
+     * @throws 
+     */
+    void batchImport(String fileName, MultipartFile file) throws IOException, Exception;
 
 }
